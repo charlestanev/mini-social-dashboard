@@ -9,7 +9,37 @@ export class HttpService<T> {
         this.apiUrl = apiUrl;
     }
 
-    getAll() {
-        return fetchUtil<T[]>(this.apiUrl)
+    create(data: T) {
+        return fetchUtil<T>(this.apiUrl, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    }
+
+    getAll(): Promise<T[]> {
+        return fetchUtil<T[]>(this.apiUrl) as Promise<T[]>;
+    }
+
+    getOne(id: number) {
+        return fetchUtil<T>(`${this.apiUrl}/${id}`)
+    }
+
+    update(id: number, data: T) {
+        return fetchUtil<T>(`${this.apiUrl}/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    }
+
+    delete(id: number) {
+        return fetchUtil<T>(`${this.apiUrl}/${id}`, {
+            method: "DELETE",
+        });
     }
 }

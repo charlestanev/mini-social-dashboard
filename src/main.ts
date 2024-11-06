@@ -8,12 +8,12 @@ const root = document.querySelector<HTMLDivElement>('#app');
 
 const postService = new PostService(CONFIG.baseUrl);
 postService.getAll().then((data) => {
-  console.log(data);
+  console.log('users: ', data);
 })
 
 const userService = new UserService(CONFIG.baseUrl);
 userService.getAll().then((data) => {
-  console.log(data);
+  console.log('posts: ', data);
 });
 
 if (root) {

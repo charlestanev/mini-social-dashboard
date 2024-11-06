@@ -9,8 +9,7 @@ export type User = {
 };
 
 export type UserDetails = {
-    user: User;
     address: Address;
     phone: string;
     company: Company;
-}
+} & User;
