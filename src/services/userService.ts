@@ -1,7 +1,11 @@
+import { User } from "../type/user";
+import { HttpService } from "./httpService";
 
-export class UserService {
-    constructor(baseUrl: string) { }
+export class UserService extends HttpService<User> {
+    constructor(baseUrl: string) {
+        super(`${baseUrl}/users`);
+    }
 
     userGetAll() { }
-    getSingleUser(userId: number) { }
+    getSingleUser() { }
 }

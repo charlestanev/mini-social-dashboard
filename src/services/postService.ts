@@ -1,8 +1,13 @@
-export class PostService {
+import { Post } from "../type/post";
+import { HttpService } from "./httpService";
+
+export class PostService extends HttpService<Post> {
     constructor(baseUrl: string) {
+        super(`${baseUrl}/posts`);
     }
 
     getUserPosts(userId: number) {
 
     }
 }
+
