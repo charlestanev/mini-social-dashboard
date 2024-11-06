@@ -24,7 +24,7 @@ export class HttpService<T> {
     }
 
     getOne(id: number) {
-        return fetchUtil<T>(`${this.apiUrl}/${id}`)
+        return fetchUtil<T>(`${this.apiUrl}/${id}`) as Promise<T>;
     }
 
     update(id: number, data: T) {
