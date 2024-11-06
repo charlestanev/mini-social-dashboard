@@ -6,8 +6,15 @@ import './style.css'
 
 const root = document.querySelector<HTMLDivElement>('#app');
 
-// const userService = new UserService(CONFIG.baseUrl);
-// const postService = new PostService(CONFIG.baseUrl);
+const postService = new PostService(CONFIG.baseUrl);
+postService.getAll().then((data) => {
+  console.log(data);
+})
+
+const userService = new UserService(CONFIG.baseUrl);
+userService.getAll().then((data) => {
+  console.log(data);
+});
 
 if (root) {
   root!.innerHTML = `
