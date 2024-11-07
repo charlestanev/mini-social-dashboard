@@ -1,9 +1,8 @@
 import { CONFIG } from './constants';
-import { HttpService } from './services/httpService';
 import { PostService } from './services/postService';
 import { UserService } from './services/userService';
 import './style.css';
-import { User, UserDetails } from './type/user';
+import { UserDetails } from './type/user';
 
 const root = document.querySelector<HTMLDivElement>('#app');
 
@@ -48,7 +47,9 @@ const user: UserDetails = {
 
 // Read One
 userService.getSingleUser(7, (id: number) => {
-  postService.getUserPosts(id);
+  postService.getUserPosts(id).then((data) => {
+    console.log('user s posts: ', data[0]);
+  });
 });
 
 // userService.getOne(1).then((data) => {

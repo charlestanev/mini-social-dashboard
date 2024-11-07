@@ -8,7 +8,7 @@ export class PostService extends HttpService<Post> {
     }
 
     getUserPosts(userId: number) {
-        return fetchUtil<Post[]>(`${this.apiUrl}?userId=${userId}`)
+        return fetchUtil<Post[]>(`${this.apiUrl}?userId=${userId}`) as Promise<Post[]>;
 
     }
 }
