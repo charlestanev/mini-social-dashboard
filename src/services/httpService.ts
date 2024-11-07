@@ -19,6 +19,7 @@ export class HttpService<T> {
         });
     }
 
+
     getAll(): Promise<T[]> {
         return fetchUtil<T[]>(this.apiUrl) as Promise<T[]>;
     }

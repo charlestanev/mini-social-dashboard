@@ -6,5 +6,10 @@ export class UserService extends HttpService<UserDetails> {
         super(`${baseUrl}/users`);
     }
 
-    getSingleUser() { }
+    getSingleUser(id: number, cb: Function) {
+        this.getOne(id).then((data) => {
+            console.log('single user: ');
+            cb(data.id);
+        });
+    }
 }

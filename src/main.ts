@@ -12,6 +12,7 @@ postService.getAll().then((data) => {
   console.log('posts: ', data);
 });
 
+// Read All Users
 const userService = new UserService(CONFIG.baseUrl);
 userService.getAll().then((data) => {
   console.log('users: ', data);
@@ -45,6 +46,11 @@ const user: UserDetails = {
 //   console.log('created user: ', data);
 // });
 
+// Read One
+userService.getSingleUser(7, (id: number) => {
+  postService.getUserPosts(id);
+});
+
 // userService.getOne(1).then((data) => {
 //   console.log('single user: ', data);
 // });
@@ -53,9 +59,11 @@ const user: UserDetails = {
 //   console.log('updated user: ', data);
 // });
 
-userService.delete(1).then((data) => {
-  console.log('deleted user: ', data);
-});
+
+// Delete
+// userService.delete(1).then((data) => {
+//   console.log('deleted user: ', data);
+// });
 
 if (root) {
   root.innerHTML = `
