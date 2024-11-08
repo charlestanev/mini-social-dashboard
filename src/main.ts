@@ -3,9 +3,22 @@ import { PostService } from './services/postService';
 import { UserService } from './services/userService';
 import './style.css';
 import { UserDetails } from './type/user';
+import { HtmlUtil } from './utils/html';
 
+// Rendering of the views
 const root = document.querySelector<HTMLDivElement>('#app');
+HtmlUtil.render(root);
 
+if (root) {
+  root.innerHTML = `
+    <div>
+      <h1>Users7</h1>
+    </div>
+  `;
+}
+
+
+// Handling the data
 const postService = new PostService(CONFIG.baseUrl);
 postService.getAll().then((data) => {
   console.log('posts: ', data);
@@ -65,11 +78,3 @@ userService.getSingleUser(7, (id: number) => {
 // userService.delete(1).then((data) => {
 //   console.log('deleted user: ', data);
 // });
-
-if (root) {
-  root.innerHTML = `
-    <div>
-      <h1>Users</h1>
-    </div>
-  `;
-}
