@@ -1,3 +1,5 @@
+import { router } from "../router";
+
 export class HtmlUtil {
     static render(rootDiv: HTMLElement | null) {
         if (!rootDiv) {
@@ -7,15 +9,42 @@ export class HtmlUtil {
         // on init
         // -> navigate to routing
 
+        const { pathname } = window.location;
+        rootDiv.innerHTML = router[pathname];
+
+
         // List events
         HtmlUtil.addEventListeners(rootDiv);
     }
 
     private static addEventListeners(rootDiv: HTMLElement) {
-        //
+        const usersBtn: HTMLElement | null = document.getElementById("users");
+        const postsBtn: HTMLElement | null = document.getElementById("posts");
+
+        if (usersBtn) {
+            usersBtn.addEventListener("click", () => {
+                console.log("click users");
+                HtmlUtil.navigate(rootDiv, "/");
+            });
+        }
+
+        if (postsBtn) {
+            postsBtn.addEventListener("click", () => {
+                console.log("click posts");
+                HtmlUtil.navigate(rootDiv, "/post");
+            });
+        }
     }
 
-    private static navigate() {
-        //
+    private static navigate(rootDiv: HTMLElement, pathname: string) {
+        const { origin } = window.location;
+        const url = `${origin}${pathname}`;
+
+        // change url
+        window.history.pushState({}, pathname, url);
+
+        // render content
+        rootDiv.innerHTML = router[pathname];
     }
+
 }

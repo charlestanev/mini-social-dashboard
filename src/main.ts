@@ -10,11 +10,6 @@ import { HtmlUtil } from './utils/html';
 const root = document.querySelector<HTMLDivElement>('#root');
 HtmlUtil.render(root);
 
-const { pathname } = window.location;
-console.log(router[pathname]);
-
-
-
 // Handling the data
 const postService = new PostService(CONFIG.baseUrl);
 postService.getAll().then((data) => {

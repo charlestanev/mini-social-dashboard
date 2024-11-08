@@ -4,5 +4,7 @@ import { userPage } from "./views/user";
 
 export const router: RouterMap = {
     "/": userPage,
+    "/user": userPage,
     "/post": postPage,
+    
 };
