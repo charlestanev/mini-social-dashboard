@@ -1,4 +1,5 @@
 import { CONFIG } from './constants';
+import { router } from './router';
 import { PostService } from './services/postService';
 import { UserService } from './services/userService';
 import './style.css';
@@ -8,6 +9,9 @@ import { HtmlUtil } from './utils/html';
 // Rendering of the views
 const root = document.querySelector<HTMLDivElement>('#root');
 HtmlUtil.render(root);
+
+const { pathname } = window.location;
+console.log(router[pathname]);
 
 
 

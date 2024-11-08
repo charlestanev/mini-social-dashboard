@@ -1,1 +1,1 @@
-export const userPage = `<div>Hello, from Posts page!</div>`;
+export const postPage = `<div>Hello, from Posts page!</div>`;
