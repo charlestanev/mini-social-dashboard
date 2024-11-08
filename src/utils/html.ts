@@ -7,20 +7,19 @@ export class HtmlUtil {
         }
 
         // on init
-        // -> navigate to routing
-
         const { pathname } = window.location;
         rootDiv.innerHTML = router[pathname];
-
 
         // List events
         HtmlUtil.addEventListeners(rootDiv);
     }
 
     private static addEventListeners(rootDiv: HTMLElement) {
+        // capture elements
         const usersBtn: HTMLElement | null = document.getElementById("users");
         const postsBtn: HTMLElement | null = document.getElementById("posts");
 
+        // attach events
         if (usersBtn) {
             usersBtn.addEventListener("click", () => {
                 console.log("click users");
