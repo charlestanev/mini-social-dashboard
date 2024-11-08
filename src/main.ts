@@ -6,16 +6,9 @@ import { UserDetails } from './type/user';
 import { HtmlUtil } from './utils/html';
 
 // Rendering of the views
-const root = document.querySelector<HTMLDivElement>('#app');
+const root = document.querySelector<HTMLDivElement>('#root');
 HtmlUtil.render(root);
 
-if (root) {
-  root.innerHTML = `
-    <div>
-      <h1>Users7</h1>
-    </div>
-  `;
-}
 
 
 // Handling the data
